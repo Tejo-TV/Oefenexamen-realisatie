@@ -45,6 +45,29 @@ function emailExists($conn, $email) {
     mysqli_stmt_close($stmt);
 }
 
+function usernameExists($conn, $username) {
+    $sql = "SELECT * FROM user WHERE username = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        echo "<script>window.location.href = '../register.php?error=stmtfailed';</script>";
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
 function createUser($conn, $username, $email, $ww, $is_admin) {
     $sql = "INSERT INTO user (username, email, password, is_admin) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
@@ -62,9 +85,9 @@ function createUser($conn, $username, $email, $ww, $is_admin) {
     exit();
 }
 
-function emptyInputLogin($email, $ww) {
+function emptyInputLogin($username, $ww) {
     $result;
-    if(empty($email) || empty($ww)){
+    if(empty($username) || empty($ww)){
         $result = true;
     } else {
         $result = false;
@@ -72,15 +95,15 @@ function emptyInputLogin($email, $ww) {
     return $result;
 }
 
-function loginUser($conn, $email, $ww) {
-    $emailExists = emailExists($conn, $email);
+function loginUser($conn, $username, $ww) {
+    $usernameExists = usernameExists($conn, $username);
 
-    if ($emailExists === false) {
+    if ($usernameExists === false) {
         echo "<script>window.location.href = '../login.php?error=wrongLogin';</script>";
         exit();
     }
 
-    $db_ww = $emailExists["password"];
+    $db_ww = $usernameExists["password"];
     $wwHashed = hash('sha256', $ww);
     if($db_ww === $wwHashed) {
         $wwChecker = true;
@@ -93,7 +116,7 @@ function loginUser($conn, $email, $ww) {
         exit();
     } else if ($wwChecker === true) {
         session_start();
-        $_SESSION["userid"] = $emailExists["ID"];
+        $_SESSION["userid"] = $usernameExists["ID"];
         if ($emailExists["is_admin"] == 1){
             $_SESSION["is_admin"] = true;
             echo "<script>window.location.href = '../admin.php';</script>";

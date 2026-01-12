@@ -3,7 +3,7 @@
 if (isset($_POST["login"])) {
 
     // alle items die worden gepost worden in een apparte variable gezet
-    $email = $_POST["email"];
+    $username = $_POST["username"];
     $ww = $_POST["ww"];
 
     // include de database connectie en de functies file.
@@ -11,12 +11,12 @@ if (isset($_POST["login"])) {
     require_once 'functions.inc.php';
 
 
-    if (emptyInputLogin($email, $ww) !== false) {
+    if (emptyInputLogin($username, $ww) !== false) {
         echo "<script>window.location.href = '../login.php?error=emptyinput';</script>";
         exit();
     }
 
-    loginUser($conn, $email, $ww);
+    loginUser($conn, $username, $ww);
 } else {
     echo "<script>window.location.href = '../login.php?error=wrongWay';</script>";
     exit();

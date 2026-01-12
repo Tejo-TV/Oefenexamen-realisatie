@@ -17,7 +17,7 @@ if (isset($_GET["error"])) {
         $error_txt  = "<p class='error-text'> Eén of meerdere verplichte velden zijn leeg. Vul alle velden in om verder te gaan. </p>";
     } elseif ($_GET["error"] == "wrongLogin") {
         $form_error = "form-container-error";
-        $error_txt  = "<p class='error-text'> Het e-mailadres of wachtwoord is onjuist. Controleer je gegevens en probeer het opnieuw. </p>";
+        $error_txt  = "<p class='error-text'> De gebruikersnaam of wachtwoord is onjuist. Controleer je gegevens en probeer het opnieuw. </p>";
     } elseif ($_GET["error"] == "stmtfailed") {
         $form_error = "form-container-error";
         $error_txt  = "<p class='error-text'> Er is een technische fout opgetreden. Probeer het later opnieuw of neem contact op met de beheerder. </p>";
@@ -69,11 +69,11 @@ if (isset($_GET["error"])) {
 
                 <!-- E-mail -->
                 <div class="input-group">
-                    <label>E-mail:</label>
+                    <label>Gebruikersnaam:</label>
                     <input
                         type="text"
-                        name="email"
-                        placeholder="Voer je e-mailadres in"
+                        name="username"
+                        placeholder="Voer je gebruikersnaam in"
                         required
                     />
                 </div>
