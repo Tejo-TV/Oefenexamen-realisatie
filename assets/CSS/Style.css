@@ -9,7 +9,7 @@
 
 body {
     background-color: black;
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
