@@ -117,9 +117,10 @@ function loginUser($conn, $username, $ww) {
     } else if ($wwChecker === true) {
         session_start();
         $_SESSION["userid"] = $usernameExists["ID"];
-        if ($emailExists["is_admin"] == 1){
+        if ($usernameExists["is_admin"] == 1){
             $_SESSION["is_admin"] = true;
-            echo "<script>window.location.href = '../admin.php';</script>";
+            $_SESSION["role"] = "admin";
+            echo "<script>window.location.href = '../admin/beheer.admin.php';</script>";
             exit();
         } else {
             $_SESSION["is_admin"] = false;

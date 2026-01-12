@@ -9,11 +9,10 @@
 session_start();
 
 if (isset($_SESSION["userid"])) {
-    echo "<div class='popup-message'>
-                    <p>Je bent ingelogd!</p>
-                </div>";
+} elseif ($_SESSION["role"] != "admin") {
+    
 } else {
-    echo "<script>window.location.href = 'login.php?error=wrongWay';</script>";
+    echo "<script>window.location.href = '../videos.php';</script>";
     exit();
 }
 
@@ -24,26 +23,28 @@ if (isset($_SESSION["userid"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETFISH - VIDEOS</title>
-    <link rel="shortcut icon" type="x-icon" href="../assets/images/NETFISH-logo-klein.png">
-    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <title>NETFISH - ADMIN</title>
+    <link rel="shortcut icon" type="x-icon" href="../../assets/images/NETFISH-logo-klein.png">
+    <link rel="stylesheet" href="../../assets/CSS/style.css">
 </head>
 
 <body>
 
     <!-- Header -->
     <header>
-        <a href="videos.php">
-            <img src="../assets/images/NETFISH-logo.png" alt="Logo">
+        <a href="beheer.admin.php">
+            <img src="../../assets/images/NETFISH-logo.png" alt="Logo">
         </a>
 
         <nav>
             <a href="videos.php">Video’s</a>
-                <!-- admins gaan naar beheer.admin.php en anders naar beheer.php -->
-            <a href="<?php echo ($_SESSION['role'] ?? '') === 'admin' ? 'admin/beheer.admin.php' : 'beheer.php'; ?>">Beheer</a>
+            <!-- admins gaan naar beheer.admin.php en anders naar beheer.php -->
+            <a href="<?php echo ($_SESSION['role'] ?? '') === 'admin' ? 'beheer.admin.php' : 'beheer.php'; ?>">Beheer</a>
             <a href="components/logout.inc.php">Log Uit</a>
         </nav>
     </header>
+    <!-- body -->
+
 
     
 </body>

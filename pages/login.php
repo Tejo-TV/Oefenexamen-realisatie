@@ -6,7 +6,12 @@
 // Project           : NETFISH
 // Datum             : OefenExamen 12-1-2026
 //---------------------------------------------------------------------------------------------------//
+session_start();
 
+if (isset($_SESSION["userid"])) {
+        echo "<script>window.location.href = 'pages/Videos.php';</script>";
+        exit();
+}
 // fout styles
 $form_error = "form-container";
 $error_txt  = "";
@@ -39,7 +44,7 @@ if (isset($_GET["error"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETFISH - Inloggen</title>
+    <title>NETFISH - INLOGGEN</title>
     <link rel="shortcut icon" type="x-icon" href="../assets/images/NETFISH-logo-klein.png">
     <link rel="stylesheet" href="../assets/CSS/style.css">
 </head>

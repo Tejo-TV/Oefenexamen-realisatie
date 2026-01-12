@@ -6,6 +6,12 @@
 // Project		      : NETFISH 
 // Datum		      : OefenExamen 12-1-2026
 //---------------------------------------------------------------------------------------------------//
+session_start();
+
+if (isset($_SESSION["userid"])) {
+        echo "<script>window.location.href = 'pages/Videos.php';</script>";
+        exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

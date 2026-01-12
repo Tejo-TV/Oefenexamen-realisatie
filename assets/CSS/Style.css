@@ -36,6 +36,21 @@ body {
     animation: popupAnim 3s forwards;
 }
 
+.popup-message-error {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #a60000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    z-index: 9999;
+    animation: popupAnim 3s forwards;
+}
 /* Animatie keyframes */
 @keyframes popupAnim {
     0% {
@@ -482,3 +497,64 @@ header nav a:hover {
     background: #5a6268;
 }
 
+/* ======================
+      ADMIN PAGINA'S STYLES
+   ====================== */
+
+.admin-container {
+    text-align: center;
+}
+
+/* Titel */
+.admin-container h1 {
+
+    color: #e60000;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+/* Knoppen container - naast elkaar */
+.button-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Algemene knopstijl */
+.admin-btn {
+    flex: 1 1 45%;
+    min-width: 200p;
+    padding: 25px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover-effect */
+.admin-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Specifieke kleuren */
+.add-btn {
+    background-color: #e60000;
+}
+
+.add-btn:hover {
+    background-color: #b30000;
+}
+
+.edit-btn {
+    background-color: #28A745;
+}
+
+.edit-btn:hover {
+    background-color: #1e7e34;
+}
