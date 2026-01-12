@@ -1,16 +1,19 @@
-
 <?php
 //---------------------------------------------------------------------------------------------------//
-// Naam script		  : logout.inc.php
-// Omschrijving		  : Op deze pagina wordt de user uitgelogd
+// Naam script       : logout.inc.php
+// Omschrijving      : Logt de gebruiker uit en vernietigt de sessie
 // Naam ontwikkelaar  : Tejo Veldman
-// Project		      : Energie Transitie
-// Datum		      : projectweek - periode 4 - 2025
+// Project           : NETFISH
+// Datum             : OefenExamen 12-1-2026
 //---------------------------------------------------------------------------------------------------//
+
 session_start();
+
+// Vernietig alle sessiegegevens
 session_unset();
 session_destroy();
 
-// Stuur de gebruiker terug naar de loginpagina met de uilog melding
+// Stuur de gebruiker terug naar de loginpagina met een uitlog-melding
 echo "<script>window.location.href = '../login.php?error=uitgelogd';</script>";
 exit();
+?>

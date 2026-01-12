@@ -1,47 +1,54 @@
 <?php
+//---------------------------------------------------------------------------------------------------//
+// Naam script       : register.inc.php
+// Omschrijving      : Verwerkt het registreren van nieuwe gebruikers
+// Naam ontwikkelaar  : Tejo Veldman
+// Project           : NETFISH
+// Datum             : OefenExamen 12-1-2026
+//---------------------------------------------------------------------------------------------------//
 
 if (isset($_POST["register"])) {
 
-    // alle items die worden gepost worden in een apparte variable gezet
+    // Zet alle POST-waarden in aparte variabelen
     $username = $_POST["username"];
     $email = $_POST["email"];
     $ww = $_POST["ww"];
     $ww_repeat = $_POST["ww-repeat"];
-    $is_admin = 0;
+    $is_admin = 0; // Standaard geen admin
 
-    // include de database connectie en de functies file.
+    // Include database connectie en functies
     require_once '../../config/DB_connect.php';
     require_once 'functions.inc.php';
 
+    // Controleer of de wachtwoorden overeenkomen
     if ($ww !== $ww_repeat) {
         echo "<script>window.location.href = '../register.php?error=passwordsdontmatch';</script>";
         exit();
     }
 
-    // als de variable leeg is stuurt de pagina je trug
-    if (emptyInputRegister($username, $email, $ww) !== false) {
+    // Controleer op lege velden
+    if (emptyInputRegister($username, $email, $ww)) {
         echo "<script>window.location.href = '../register.php?error=emptyinput';</script>";
         exit();
     }
 
-    // Als de email geen valid email is stuurt de pagina je terug
-    if (invalidEmail($email) !== false) {
+    // Controleer of het e-mailadres geldig is
+    if (invalidEmail($email)) {
         echo "<script>window.location.href = '../register.php?error=invalidemail';</script>";
         exit();
     }
 
-     // Als de email al bestaat stuurt de pagina je terug
-    if (emailExists($conn, $email) !== false) {
+    // Controleer of het e-mailadres al bestaat
+    if (emailExists($conn, $email)) {
         echo "<script>window.location.href = '../register.php?error=emailTaken';</script>";
         exit();
     }
 
+    // Maak de gebruiker aan
     createUser($conn, $username, $email, $ww, $is_admin);
 
 } else {
-    // stuurt persoon terug als er niks te doen is op deze pagina.
+    // Directe toegang tot deze pagina zonder POST
     echo "<script>window.location.href = '../register.php?error=wrongWay';</script>";
     exit();
 }
-
-?>
