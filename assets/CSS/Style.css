@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 /* ======================
@@ -96,10 +97,102 @@ header nav a {
   transition: 0.2s ease-in-out;
 }
 
-/* Hover */
+/* Button Hover */
 header nav a:hover {
   background-color: #b30000;
 }
+
+/* ======================
+      HOMEPAGE STYLES
+   ====================== */
+
+/* home Section */
+.home-film {
+    display: flex;
+    padding: 50px;
+    background: url('../images/fear-home.jpg') no-repeat center/cover;
+}
+
+.home-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* Titel */
+.home-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Jaar */
+.year {
+    font-weight: bold;
+    color: #e60000;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Beschrijving */
+.home-content p {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+/* Verwijs knop */
+.home-content a {
+    display: inline-block;
+    background-color: #e60000;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Video */
+.home-video {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAROUSEL */
+.carousel {
+  padding: 20px 50px;
+}
+
+.carousel h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.carousel-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.slide img {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 5px;     
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.slide img:hover {
+  transform: scale(1.1);  /* vergroot poster bij hover */
+}
+
 
 /* ======================
       LOGIN & REGISTER STYLES
