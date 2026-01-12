@@ -1,0 +1,62 @@
+/* ======================
+  MAIN STYLES
+====================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+/* ======================
+  HEADER STYLES
+====================== */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: black;
+  z-index: 10;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  height: 120px;
+  width: auto;
+}
+
+/* Navigation */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Vierkante knoppen */
+header nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  background-color: #e60000;
+  padding: 12px 20px;
+  border-radius: 2px;
+  transition: 0.2s ease-in-out;
+}
+
+/* Hover */
+header nav a:hover {
+  background-color: #b30000;
+}
+
+
