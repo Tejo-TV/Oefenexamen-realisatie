@@ -18,6 +18,9 @@ if (isset($_GET["error"])) {
     } elseif ($_GET["error"] == "invalidemail") {
         $form_error = "form-container-error";
         $error_txt  = "<p class='error-text'> Het ingevoerde e-mailadres is ongeldig. Controleer of het formaat klopt, bijvoorbeeld: voorbeeld@domein.nl </p>";
+    } elseif ($_GET["error"] == "passwordsdontmatch") {
+    $form_error = "form-container-error";
+    $error_txt  = "<p class='error-text'> De wachtwoorden komen niet overeen. </p>";
     } elseif ($_GET["error"] == "emailTaken") {
         $form_error = "form-container-error";
         $error_txt  = "<p class='error-text'> Dit e-mailadres is al in gebruik. Probeer een ander e-mailadres of log in. </p>";

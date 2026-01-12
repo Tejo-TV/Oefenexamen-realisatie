@@ -16,6 +16,46 @@ body {
 }
 
 /* ======================
+  POPUP STYLES
+====================== */
+
+.popup-message {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    z-index: 9999;
+    animation: popupAnim 3s forwards;
+}
+
+/* Animatie keyframes */
+@keyframes popupAnim {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ======================
   HEADER STYLES
 ====================== */
 
@@ -115,27 +155,27 @@ header nav a:hover {
 /* form error animatie */
 @keyframes errorShake {
     0% {
-        border-color: #007bff;
+        border-color: #e60000;
         transform: translateX(0);
     }
     20% {
-        border-color: #ff0026;
+        border-color: #821021;
         transform: translateX(-5px);
     }
     40% {
-        border-color: #ff0026;
+        border-color: #821021;
         transform: translateX(5px);
     }
     60% {
-        border-color: #ff0026;
+        border-color: #821021;
         transform: translateX(-5px);
     }
     80% {
-        border-color: #ff0026;
+        border-color: #821021;
         transform: translateX(5px);
     }
     100% {
-        border-color: #007bff;
+        border-color: #e60000;
         transform: translateX(0);
     }
 }
@@ -144,7 +184,7 @@ header nav a:hover {
 @keyframes errorShake2 {
     0% {
         transform: scale(1);
-        border-color: #007bff;
+        border-color: #e60000;
         opacity: 1;
     }
     20% {
@@ -161,12 +201,24 @@ header nav a:hover {
     }
     100% {
         transform: scale(1);
-        border-color: #007bff;
+        border-color: #e60000;
     }
 }
 
 /* Form titel */
 .form-container h2 {
+    margin-bottom: 30px;
+    color: #e60000;
+    font-size: 28px;
+}
+
+.form-container-error h2 {
+    margin-bottom: 30px;
+    color: #e60000;
+    font-size: 28px;
+}
+
+.form-container-error2 h2 {
     margin-bottom: 30px;
     color: #e60000;
     font-size: 28px;
