@@ -53,6 +53,7 @@ if(isset($_GET["error"])) {
     </header>
 
     <!-- Login form -->
+     <div class= "login-container">
     <div class="<?php echo $form_error; ?>">
         <h2>Login Form</h2>
 
@@ -85,6 +86,7 @@ if(isset($_GET["error"])) {
             </div>
         </form>
     </div>
+</div>
 
 </body>
 </html>
