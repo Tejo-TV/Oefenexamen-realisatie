@@ -34,7 +34,7 @@ if (isset($_SESSION["userid"])) {
         </nav>
     </header>
 
-    <!-- Hero Sectie -->
+    <!-- Home Sectie -->
     <section class="home-film">
         <div class="home-content">
             <h1>Despacito</h1>

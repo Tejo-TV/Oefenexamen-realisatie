@@ -13,7 +13,7 @@ if (isset($_SESSION["userid"])) {
                     <p>Je bent ingelogd!</p>
                 </div>";
 } else {
-    echo "<script>window.location.href = 'login.php?error=wrongWay';</script>";
+    echo "<script>window.location.href = 'login.php';</script>";
     exit();
 }
 

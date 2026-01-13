@@ -31,7 +31,7 @@ function emailExists($conn, $email) {
     mysqli_stmt_execute($stmt);
     $resultData = mysqli_stmt_get_result($stmt);
 
-    if ($row = mysqli_fetch_assoc($resultData)) {
+    if ($row = mysqli_fetch_assoc($resultData)) { 
         return $row;
     } else {
         return false;
@@ -116,7 +116,7 @@ function loginUser($conn, $username, $ww) {
         exit();
     } else {
         $_SESSION["is_admin"] = false;
-        echo "<script>window.location.href = '../account.php';</script>";
+        echo "<script>window.location.href = '../videos.php';</script>";
         exit();
     }
 }

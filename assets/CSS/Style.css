@@ -205,7 +205,7 @@ header nav a:hover {
 }
 
 .slide img:hover {
-  transform: scale(1.1);  /* vergroot poster bij hover */
+  transform: scale(1.1);
 }
 
 
@@ -489,7 +489,7 @@ header nav a:hover {
     border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
-    width: 110px; /* reset kleiner */
+    width: 110px;
     transition: background 0.2s ease;
 }
 

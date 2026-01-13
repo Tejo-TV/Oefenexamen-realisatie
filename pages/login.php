@@ -67,7 +67,7 @@ if (isset($_GET["error"])) {
         </a>
         <nav>
             <a href="videos.php">Video’s</a>
-            <a href="beheer.php">Beheer</a>
+            <a href="#">Beheer</a>
             <a href="register.php">Registreren</a>
         </nav>
     </header>

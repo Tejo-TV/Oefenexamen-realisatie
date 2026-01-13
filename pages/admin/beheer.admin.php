@@ -33,7 +33,7 @@ if (!isset($_SESSION["userid"]) || ($_SESSION["role"] ?? '') !== "admin") {
         <nav>
             <a href="../videos.php">Video’s</a>
             <a href="beheer.admin.php">Beheer</a>
-            <a href="components/logout.inc.php">Uitloggen</a>
+            <a href="../components/logout.inc.php">Uitloggen</a>
         </nav>
     </header>
 
